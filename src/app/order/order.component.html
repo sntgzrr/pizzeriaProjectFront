@@ -1,12 +1,145 @@
 <app-navbar></app-navbar>
-<div>
-  <h2>¡Te la enviamos a tu posición actual!</h2>
-</div>
-<div class="map">
-  <form [formGroup]="formMapas">
 
-    <input type="text" #inputPlaces id="inputPlaces" formControlName="busqueda">
-    <div class="mapa" #divMap></div>
-  </form>
-  <button (click)="mapRuta()">Ver ruta</button>
-</div>
+<section class="text-center">
+  <!-- Background image -->
+  <div class="p-5 bg-image" style="
+        background: linear-gradient(to right, rgb(109, 10, 10), rgb(0, 0, 0));
+        height: 300px;
+        "></div>
+  <!-- Background image -->
+
+  <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+      <div class="card-body py-5 px-md-5">
+
+          <div class="row d-flex justify-content-center">
+              <div class="col-lg-8">
+                  <h2 class="fw-bold mb-5">¡Te la llevamos a tu posición actual!</h2>
+                  <form>
+                      <!-- 2 column grid layout with text inputs for the first and last names -->
+                      <div class="row">
+                          <div class="col-md-6 mb-4">
+                            <div class="form-outline mb-3">
+                              <input
+                                class="form-control"
+                                id="formControlDisabled1"
+                                type="text"
+                                placeholder="Disabled input"
+                                aria-label="disabled input example"
+                                disabled
+                              />
+                              <label class="form-label" for="formControlDisabled">Tú nombre: {{client.name}}</label>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-4">
+                            <div class="form-outline mb-3">
+                              <input
+                                class="form-control"
+                                id="formControlDisabled2"
+                                type="text"
+                                placeholder="Disabled input"
+                                aria-label="disabled input example"
+                                disabled
+                              />
+                              <label class="form-label" for="formControlDisabled">Tú apellido: {{client.lastname}}</label>
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-md-6 mb-4">
+                            <div class="form-outline mb-3">
+                              <input
+                                class="form-control"
+                                id="formControlDisabled3"
+                                type="text"
+                                placeholder="Disabled input"
+                                aria-label="disabled input example"
+                                disabled
+                              />
+                              <label class="form-label" for="formControlDisabled">Tú email: {{client.email}}</label>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-4">
+                            <div class="form-outline mb-3">
+                              <input
+                                class="form-control"
+                                id="formControlDisabled4"
+                                type="text"
+                                placeholder="Disabled input"
+                                aria-label="disabled input example"
+                                disabled
+                              />
+                              <label class="form-label" for="formControlDisabled">Tú pizza: --</label>
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline mb-3">
+                            <input
+                              class="form-control"
+                              id="formControlDisabled5"
+                              type="text"
+                              placeholder="Disabled input"
+                              aria-label="disabled input example"
+                              disabled
+                            />
+                            <label class="form-label" for="formControlDisabled">Precio Pizza: --</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline mb-3">
+                            <input
+                              class="form-control"
+                              id="formControlDisabled6"
+                              type="text"
+                              placeholder="Disabled input"
+                              aria-label="disabled input example"
+                              disabled
+                            />
+                            <label class="form-label" for="formControlDisabled">Precio pedido: --</label>
+                          </div>
+                        </div>
+                    </div>
+
+                      <div class="row">
+                        <div class="col-md-12 mb-4">
+                          <div class="form-outline mb-3">
+                            <input
+                              class="form-control"
+                              id="formControlDisabled7"
+                              type="text"
+                              placeholder="Disabled input"
+                              aria-label="disabled input example"
+                              disabled
+                            />
+                            <label class="form-label" for="formControlDisabled">Precio total: --</label>
+                          </div>
+                        </div>
+                    </div>
+                  </form>
+                  <div class="map">
+                    <form [formGroup]="formMapas">
+                  
+                      <input type="text" #inputPlaces id="inputPlaces" formControlName="busqueda">
+                      <div class="mapa" #divMap></div>
+                    </form>
+                  </div>
+                  <button type="submit" class="btn btn-black btn-block mb-4" (click)="mapRuta()" style="background: linear-gradient(to right, rgb(109, 10, 10), rgb(0, 0, 0));">
+                    Ver ruta
+                </button>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-black btn-block mb-4" style="background: linear-gradient(to right, rgb(109, 10, 10), rgb(0, 0, 0));">
+                  Pagar con PayPal
+              </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

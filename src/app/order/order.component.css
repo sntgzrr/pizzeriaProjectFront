@@ -3,7 +3,7 @@
   height: 600px;
 }
 
-input {
+#inputPlaces {
   display: none;
 }
 
@@ -11,4 +11,13 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.form{
+  justify-content: center;
+  align-items: center;
+}
+
+.form h2{
+  color: black;
 }

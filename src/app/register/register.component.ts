@@ -20,9 +20,9 @@ export class RegisterComponent implements OnInit{
 
   createClient(){
     this.clientService.newClient(this.client).subscribe(
-      res=>this.router.navigate(['/start'])
+      res=>this.router.navigate(['/login'])
     )
-    console.log(this.client);
+    alert("¡Registro satisfactorio!")
   }
 
 }

@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class ClientService {
 
   private url: string ="/clients";
+  client: Client = new Client;
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +23,14 @@ export class ClientService {
 
   foundClient(email:string | undefined, password: string | undefined): Observable<Client>{
     return this.http.get<Client>(this.url+"/login?"+"email="+email+"&password="+password);
+  }
+
+  transferDataClient(client:Client){ 
+    this.client = client;
+  }
+
+  getTransferDataClient(){
+    return this.client;
   }
 
 }

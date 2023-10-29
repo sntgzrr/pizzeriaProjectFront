@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms'
 import { ElementRef, ViewChild, Renderer2 } from '@angular/core'
+import { Client } from '../model/client';
+import { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-order',
@@ -18,8 +20,9 @@ export class OrderComponent implements OnInit{
   origin = { lat: 4.644762562342593, lng: -74.09162154851731 };
   destinationlat: any;
   destinationlng: any;
+  client: Client = new Client;
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, private clientService: ClientService) {
     this.markers = [];
 
     this.formMapas = new FormGroup({
@@ -34,7 +37,7 @@ export class OrderComponent implements OnInit{
   }
 
   ngOnInit() {
-    
+    this.client = this.clientService.getTransferDataClient();
   }
 
   ngAfterViewInit(): void {

@@ -20,6 +20,8 @@ export class LogInComponent implements OnInit{
     this.clientSevice.foundClient(this.client.email, this.client.password).subscribe((data) => {
       console.log("Usuario: ", data);
       if(data){
+        this.client = data;
+        this.clientSevice.transferDataClient(this.client);
         this.router.navigate(['/start'])
       }else{
         alert("¡El usuario no existe!")
