@@ -1,0 +1,26 @@
+.promos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.promo1{
+    background: linear-gradient(to right, rgb(109, 10, 10), rgb(0, 0, 0));
+    border-radius: 10px 20px 15px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.promo1 img{
+    width: 50%;
+    height:20%;
+}
+
+.promo1 h2{
+    color: white;
+    margin-left: 50px;
+    height: 50%;
+}

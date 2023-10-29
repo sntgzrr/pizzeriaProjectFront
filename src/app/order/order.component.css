@@ -1,0 +1,14 @@
+.mapa {
+  width: 600px;
+  height: 600px;
+}
+
+input {
+  display: none;
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

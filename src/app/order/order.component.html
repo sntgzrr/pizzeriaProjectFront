@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<div>
+  <h2>¡Te la enviamos a tu posición actual!</h2>
+</div>
+<div class="map">
+  <form [formGroup]="formMapas">
+
+    <input type="text" #inputPlaces id="inputPlaces" formControlName="busqueda">
+    <div class="mapa" #divMap></div>
+  </form>
+  <button (click)="mapRuta()">Ver ruta</button>
+</div>

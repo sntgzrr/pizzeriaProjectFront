@@ -1,0 +1,26 @@
+.makePizza {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background: linear-gradient(to right, rgb(109, 10, 10), rgb(0, 0, 0))
+}
+
+.makePizzaLogo {
+    height: 100%;
+    width: 10%;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu a {
+    display: inline-block;
+    margin: 20px;
+    color: black;
+    font-size:25px;
+    font-weight: bolder;
+}
