@@ -5,6 +5,7 @@ import { StartComponent } from './start/start.component';
 import { MenuComponent } from './menu/menu.component';
 import { RegisterComponent } from './register/register.component';
 import { OrderComponent } from './order/order.component';
+import { OrderListComponent } from './order-list/order-list.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"/login", pathMatch:"full"},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:"start", component:StartComponent},
   {path:"menu", component:MenuComponent},
   {path:"register", component:RegisterComponent},
-  {path:"order", component:OrderComponent}
+  {path:"order", component:OrderComponent},
+  {path:"ordersList", component:OrderListComponent}
 ];
 
 @NgModule({

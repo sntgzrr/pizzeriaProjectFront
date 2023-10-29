@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Client } from '../model/client';
 import { Observable } from 'rxjs';
+import { Pizza } from '../model/pizza';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class ClientService {
 
   private url: string ="/clients";
   client: Client = new Client;
+  pizza: Pizza = new Pizza();
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +33,14 @@ export class ClientService {
 
   getTransferDataClient(){
     return this.client;
+  }
+
+  transferDataPizza(pizza:Pizza){
+    this.pizza = pizza;
+  }
+
+  getTransferDataPizza(){
+    return this.pizza;
   }
 
 }

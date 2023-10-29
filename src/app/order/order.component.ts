@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms'
 import { ElementRef, ViewChild, Renderer2 } from '@angular/core'
 import { Client } from '../model/client';
 import { ClientService } from '../services/client.service';
+import { Pizza } from '../model/pizza';
 
 @Component({
   selector: 'app-order',
@@ -21,6 +22,9 @@ export class OrderComponent implements OnInit{
   destinationlat: any;
   destinationlng: any;
   client: Client = new Client;
+  pizza: Pizza = new Pizza;
+  domiclio = 3000;
+  pedido: number | undefined;
 
   constructor(private renderer: Renderer2, private clientService: ClientService) {
     this.markers = [];
@@ -38,6 +42,8 @@ export class OrderComponent implements OnInit{
 
   ngOnInit() {
     this.client = this.clientService.getTransferDataClient();
+    this.pizza = this.clientService.getTransferDataPizza();
+    this.pedido = this.domiclio + this.pizza.price!;
   }
 
   ngAfterViewInit(): void {
