@@ -133,11 +133,9 @@
                   <button type="submit" class="btn btn-black btn-block mb-4" (click)="mapRuta()" style="background: linear-gradient(to right, rgb(109, 10, 10), rgb(0, 0, 0));">
                     Ver ruta
                 </button>
-
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-black btn-block mb-4" style="background: linear-gradient(to right, rgb(109, 10, 10), rgb(0, 0, 0));">
-                  Pagar con PayPal
-              </button>
+                <div class="paypal btn">
+                  <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                </div>
               </div>
           </div>
       </div>

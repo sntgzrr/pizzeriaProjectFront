@@ -9,7 +9,7 @@ import { Pizza } from '../model/pizza';
 })
 export class ClientService {
 
-  private url: string ="/clients";
+  private url: string ="https://pizzeriaproject.fly.dev/clients";
   client: Client = new Client;
   pizza: Pizza = new Pizza();
 

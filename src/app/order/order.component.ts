@@ -4,13 +4,14 @@ import { ElementRef, ViewChild, Renderer2 } from '@angular/core'
 import { Client } from '../model/client';
 import { ClientService } from '../services/client.service';
 import { Pizza } from '../model/pizza';
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css']
 })
-export class OrderComponent implements OnInit{
+export class OrderComponent implements OnInit {
   @ViewChild('divMap') divMap!: ElementRef;
   @ViewChild('inputPlaces') inputPlaces!: ElementRef;
 
@@ -40,7 +41,10 @@ export class OrderComponent implements OnInit{
     })
   }
 
+  public payPalConfig?: IPayPalConfig;
+
   ngOnInit() {
+    this.initConfig();
     this.client = this.clientService.getTransferDataClient();
     this.pizza = this.clientService.getTransferDataPizza();
     this.pedido = this.domiclio + this.pizza.price!;
@@ -88,7 +92,7 @@ export class OrderComponent implements OnInit{
     directionService.route({
 
       origin: this.origin,
-      destination: {lat:this.destinationlat, lng: this.destinationlng},
+      destination: { lat: this.destinationlat, lng: this.destinationlng },
       travelMode: google.maps.TravelMode.DRIVING
 
     }, resultado => {
@@ -192,12 +196,69 @@ export class OrderComponent implements OnInit{
       marker.setDraggable(true)
       marker.setMap(this.mapa);
 
-      google.maps.event.addListener(marker, 'click', () => { 
+      google.maps.event.addListener(marker, 'click', () => {
         marker.setMap(null);
-        
+
       })
 
     })
   };
 
+  private initConfig(): void {
+    this.payPalConfig = {
+        currency: 'EUR',
+        clientId: 'AWasaKPdED-763f1aPIZGt8KTGVlIcdLw3tzVe4NKY2k1M1OfAETdKQKi5mqJhNMv-K5N8CJ_JUBRqDX',
+        createOrderOnClient: (data) => < ICreateOrderRequest > {
+            intent: 'CAPTURE',
+            purchase_units: [{
+                amount: {
+                    currency_code: 'EUR',
+                    value: '9.99',
+                    breakdown: {
+                        item_total: {
+                            currency_code: 'EUR',
+                            value: '9.99'
+                        }
+                    }
+                },
+                items: [{
+                    name: 'Enterprise Subscription',
+                    quantity: '1',
+                    category: 'DIGITAL_GOODS',
+                    unit_amount: {
+                        currency_code: 'EUR',
+                        value: '9.99',
+                    },
+                }]
+            }]
+        },
+        advanced: {
+            commit: 'true'
+        },
+        style: {
+            label: 'paypal',
+            layout: 'vertical'
+        },
+        onApprove: (data, actions) => {
+            console.log('onApprove - transaction was approved, but not authorized', data, actions);
+            actions.order.get().then((details: any) => {
+                console.log('onApprove - you can get full order details inside onApprove: ', details);
+            });
+
+        },
+        onClientAuthorization: (data) => {
+            console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+        },
+        onCancel: (data, actions) => {
+            console.log('OnCancel', data, actions);
+
+        },
+        onError: err => {
+            console.log('OnError', err);
+        },
+        onClick: (data, actions) => {
+            console.log('onClick', data, actions);
+        }
+    };
+}
 }

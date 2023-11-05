@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderListComponent } from './order-list/order-list.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { OrderListComponent } from './order-list/order-list.component';
     HttpClientModule,
     FormsModule,
     GoogleMapsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
